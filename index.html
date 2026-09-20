@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【公式】全国生徒会大会2027</title>
+    <style>
+        /* 全体設定 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ヘッダー */
+        .site-header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .site-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ナビゲーション */
+        .main-nav > ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            padding: 10px 5px;
+            display: block;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #0056b3;
+        }
+
+        /* ドロップダウンメニュー */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            list-style: none;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dropdown li a {
+            padding: 10px 15px;
+            white-space: nowrap;
+        }
+
+        .dropdown li a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .has-dropdown:hover .dropdown {
+            display: block;
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            padding: 30px 0;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .hero-img, .banner-img {
+            margin: 0 auto;
+            border-radius: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .banner-link:hover img {
+            opacity: 0.9;
+        }
+
+        /* フッター */
+        .site-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-btn-container {
+            margin-bottom: 30px;
+        }
+
+        .insta-btn {
+            display: inline-block;
+            background-color: #e1306c;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .insta-btn:hover {
+            background-color: #c13584;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-subtitle {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #bbb;
+        }
+
+        .footer-nav {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .footer-nav a {
+            color: #ccc;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav > ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .has-dropdown:hover .dropdown {
+                position: static;
+                box-shadow: none;
+                padding-left: 15px;
+                background: #f9f9f9;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー / ナビゲーション -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <a href="index.html" class="brand-link">
+                    <img src="images/nscc_logo.png" alt="NSCC Logo" class="header-logo">
+                    <span class="site-title">【公式】全国生徒会大会2027</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">ホーム</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">実行委員紹介 ▾</a>
+                        <ul class="dropdown">
+                            <li><a href="#">実行委員長</a></li>
+                            <li><a href="#">総務部</a></li>
+                            <li><a href="#">事業部</a></li>
+                            <li><a href="#">ICT部</a></li>
+                            <li><a href="#">広報部</a></li>
+                            <li><a href="#">企画部</a></li>
+                            <li><a href="#">会計部</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">その他・お問い合わせ</a></li>
+                    <li class="has-dropdown">
+                        <a href="#">過去の大会 ▾</a>
+                        <ul class="dropdown">
+                            <li><a href="#">2026年レポート</a></li>
+                            <li><a href="#">2025年レポート</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- ロゴ / メインビジュアル セクション -->
+        <section class="banner-section">
+            <div class="container">
+                <img src="header.png" alt="全国生徒会大会2027" class="hero-img">
+            </div>
+        </section>
+
+        <!-- 実行委員紹介バナー セクション -->
+        <section class="section">
+            <div class="container">
+                <a href="#" class="banner-link">
+                    <img src="zikkouiinn.png" alt="実行委員紹介" class="banner-img">
+                </a>
+            </div>
+        </section>
+
+        <!-- Instagramバナー セクション -->
+        <section class="section">
+            <div class="container">
+                <a href="https://www.instagram.com/nscc_2027" target="_blank" rel="noopener noreferrer" class="banner-link">
+                    <img src="nscc_instagram.png" alt="Instagram作りました" class="banner-img">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="site-footer">
+        <div class="footer-btn-container">
+            <a href="https://www.instagram.com/nscc_2027" target="_blank" rel="noopener noreferrer" class="insta-btn">
+                公式Instagram
+            </a>
+        </div>
+        
+        <div class="footer-links">
+            <p class="footer-title">全国生徒会大会2027 公式ホームページ</p>
+            <ul class="footer-nav">
+                <li><a href="index.html">ホーム</a></li>
+            </ul>
+            <p class="footer-subtitle">実行委員紹介</p>
+            <ul class="footer-nav">
+                <li><a href="#">実行委員長</a></li>
+                <li><a href="#">総務部</a></li>
+                <li><a href="#">事業部</a></li>
+                <li><a href="#">会計部</a></li>
+                <li><a href="#">広報部</a></li>
+                <li><a href="#">企画部</a></li>
+                <li><a href="#">ICT部</a></li>
+            </ul>
+            <ul class="footer-nav">
+                <li><a href="#">その他・お問い合わせ</a></li>
+            </ul>
+        </div>
+        <p class="copyright">&copy; 全国生徒会大会2027 実行委員会 All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
