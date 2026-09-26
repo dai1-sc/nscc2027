@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>お問い合わせ | NSCC2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<header>
+  <div class="nav-inner">
+    <div class="logo-area">
+      <a href="index.html"><img src="icon.png" alt="NSCC2027 ロゴ"></a>
+      <a href="index.html" class="brand-word">NSCC2027</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="メニュー">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a class="navlink" href="index.html">ホーム</a></li>
+        <li class="dropdown" id="committeeDropdown">
+          <span class="navlink" id="committeeToggle">実行委員紹介<span class="caret">▾</span></span>
+          <div class="dropdown-menu" id="committeeMenu"></div>
+        </li>
+        <li><a class="navlink contact" href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="committee-hero">
+    <h2>お問い合わせ</h2>
+  </div>
+  <form class="contact-form" onsubmit="return handleContact(event)">
+    <label>お名前
+      <input type="text" required placeholder="山田 太郎">
+    </label>
+    <label>学校名
+      <input type="text" placeholder="〇〇中学校 / 〇〇高等学校">
+    </label>
+    <label>メールアドレス
+      <input type="email" required placeholder="you@example.com">
+    </label>
+    <label>お問い合わせ内容
+      <textarea rows="5" required placeholder="ご質問・ご相談内容をご記入ください"></textarea>
+    </label>
+    <button type="submit">送信する</button>
+  </form>
+  <p class="contact-note" id="contactNote">大会に関するご質問・ご相談はこちらからお気軽にどうぞ。</p>
+  <p style="text-align:center;"><a class="back-link" href="index.html">← ホームに戻る</a></p>
+
+</main>
+<footer>© 全国生徒会大会2027 実行委員会</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
