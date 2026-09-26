@@ -10,7 +10,7 @@ const committees = [
 ];
 
 const news = [
-  {date:'2026.10.01', tag:'お知らせ', text:'全国生徒会大会2027 特設サイトを公開しました。'},
+  {date:'2026.12.01', tag:'お知らせ', text:'全国生徒会大会2027 特設サイトを公開しました。'},
   {date:'準備中', tag:'開催概要', text:'開催日程・会場は決まり次第、随時お知らせいたします。'},
   {date:'準備中', tag:'募集', text:'参加校の募集開始時期は近日公開予定です。'},
 ];
@@ -42,13 +42,6 @@ function closeMenus(){
 function positionMobileNav(){
   const header = document.querySelector('header');
   document.getElementById('mainNav').style.top = header.offsetHeight + 'px';
-}
-
-function handleContact(e){
-  e.preventDefault();
-  document.getElementById('contactNote').textContent = 'お問い合わせありがとうございます。内容を確認の上、追ってご連絡いたします。';
-  e.target.reset();
-  return false;
 }
 
 function setActiveNav(){
