@@ -36,22 +36,25 @@
   <div class="committee-hero">
     <h2>お問い合わせ</h2>
   </div>
-  <form class="contact-form" onsubmit="return handleContact(event)">
+  <form class="contact-form" action="https://formsubmit.co/2027nscc@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="【NSCC2027】お問い合わせ">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
     <label>お名前
-      <input type="text" required placeholder="山田 太郎">
+      <input type="text" name="お名前" required placeholder="山田 太郎">
     </label>
     <label>学校名
-      <input type="text" placeholder="〇〇中学校 / 〇〇高等学校">
+      <input type="text" name="学校名" placeholder="〇〇中学校 / 〇〇高等学校">
     </label>
     <label>メールアドレス
-      <input type="email" required placeholder="you@example.com">
+      <input type="email" name="メールアドレス" required placeholder="you@example.com">
     </label>
     <label>お問い合わせ内容
-      <textarea rows="5" required placeholder="ご質問・ご相談内容をご記入ください"></textarea>
+      <textarea name="お問い合わせ内容" rows="5" required placeholder="ご質問・ご相談内容をご記入ください"></textarea>
     </label>
     <button type="submit">送信する</button>
   </form>
-  <p class="contact-note" id="contactNote">大会に関するご質問・ご相談はこちらからお気軽にどうぞ。</p>
+  <p class="contact-note">送信いただいた内容は 2027nscc@gmail.com 宛に届きます。</p>
   <p style="text-align:center;"><a class="back-link" href="index.html">← ホームに戻る</a></p>
 
 </main>
