@@ -2,11 +2,11 @@ const committees = [
   {slug:'chairperson', badge:'実行委員長', desc:'大会全体を統括し、各部門の活動をとりまとめる責任者です。大会の方針を定め、実行委員会全体をリードします。'},
   {slug:'vice-chairperson', badge:'副実行委員長', desc:'実行委員長を補佐し、大会運営が円滑に進むよう各部門との調整を担います。実行委員長不在時は代理を務めます。'},
   {slug:'general-affairs', badge:'総務部', desc:'会場の手配や当日の運営進行、備品管理など、大会運営の土台となる業務を幅広く担当します。'},
-  {slug:'operations', badge:'事業部', desc:'大会当日のプログラムや企画の実施を担当し、参加校にとって実りある時間になるよう準備を進めます。'},
-  {slug:'public-relations', badge:'広報部', desc:'Webサイトの更新やSNSでの発信を通じて、大会の魅力や最新情報を全国の生徒会に届けます。'},
+  {slug:'operations', badge:'事業部', desc:'外部との連携を通じて、参加校にとって実りある時間になるよう準備を進めます。'},
+  {slug:'public-relations', badge:'広報部', desc:'パンフレットの作成やSNSでの発信を通じて、大会の魅力や最新情報を全国の生徒会に届けます。'},
   {slug:'planning', badge:'企画部', desc:'大会のテーマやプログラム内容を企画立案し、参加者が主体的に関われる大会づくりを進めます。'},
   {slug:'accounting', badge:'会計部', desc:'大会運営に必要な予算の編成や管理を担当し、健全な大会運営を財務面から支えます。'},
-  {slug:'ict', badge:'ICT部', desc:'本サイトの制作・運用やオンライン配信など、ICTを活用した大会運営を担当します。'},
+  {slug:'ict', badge:'ICT部', desc:'本サイトの制作や業務効率化など、ICTを活用した大会運営を担当します。'},
 ];
 
 const news = [
