@@ -140,24 +140,46 @@
   }
 
   .member-card{margin-top:30px;padding-top:26px;border-top:1px solid var(--line);}
-  .member-photo{
+  .member-card .member-photo{
     display:block;max-width:260px;width:100%;margin:0 auto 20px;border-radius:8px;
   }
   .member-name{
-    text-align:center;font-size:1.35rem;font-weight:700;color:var(--purple-deep);margin:0 0 4px;
+    font-size:1.35rem;font-weight:700;color:var(--purple-deep);margin:0 0 4px;
   }
   .member-kana{
     font-size:.85rem;font-weight:400;color:var(--teal);margin-left:6px;
   }
   .member-meta{
-    text-align:center;color:var(--ink);opacity:.75;margin:0 0 8px;font-size:.9rem;
+    color:var(--ink);opacity:.75;margin:0 0 10px;font-size:.9rem;
   }
-  .member-hashtag{
-    text-align:center;color:var(--purple);font-weight:700;margin:0 0 20px;
-  }
+  .member-hashtags{margin:0 0 18px;}
+  .member-hashtags span{display:block;color:var(--purple);font-weight:700;}
   .member-message{
-    margin:0;line-height:2;
+    margin:0;line-height:2;white-space:normal;
   }
+  .member-card .member-name,
+  .member-card .member-meta,
+  .member-card .member-hashtags{text-align:center;}
+
+  /* Horizontal member layout (multiple members per page) */
+  .member-card-horizontal{
+    display:flex;gap:28px;align-items:flex-start;
+    margin-top:34px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .member-card-horizontal.reverse{flex-direction:row-reverse;}
+  .member-card-horizontal .member-photo{
+    flex:0 0 200px;width:200px;margin:0;border-radius:8px;
+  }
+  .member-card-horizontal .member-text{flex:1;min-width:0;}
+
+  @media (max-width:640px){
+    .member-card-horizontal, .member-card-horizontal.reverse{flex-direction:column;}
+    .member-card-horizontal .member-photo{width:100%;max-width:260px;flex:none;margin:0 auto 18px;}
+    .member-card-horizontal .member-name,
+    .member-card-horizontal .member-meta,
+    .member-card-horizontal .member-hashtags{text-align:center;}
+  }
+
   .back-link{display:inline-block;margin:26px 0 0;color:var(--purple-deep);border-bottom:1px solid var(--purple-deep);}
 
   /* Contact page */
