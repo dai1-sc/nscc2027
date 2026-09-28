@@ -143,6 +143,9 @@
   .member-card .member-photo{
     display:block;max-width:260px;width:100%;margin:0 auto 20px;border-radius:8px;
   }
+.member-butyo{
+    font-size:1.65rem;font-weight:700;
+}
   .member-name{
     font-size:1.35rem;font-weight:700;color:var(--purple-deep);margin:0 0 4px;
   }
