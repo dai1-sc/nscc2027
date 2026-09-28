@@ -9,8 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<script>try{if(document.referrer&&new URL(document.referrer).origin===location.origin)document.documentElement.classList.add('skip-intro')}catch(e){}</script>
+<noscript><style>#intro,#introSpacer{display:none}</style></noscript>
 </head>
 <body>
+<div id="intro" role="img" aria-label="全国生徒会大会2027 NSCC2027">
+  <img class="intro-logo" src="logo.png" alt="">
+  <div class="intro-scroll"><span>SCROLL</span><i></i></div>
+</div>
+<div id="introSpacer"></div>
+<div id="site">
 <header>
   <div class="nav-inner">
     <div class="logo-area">
@@ -57,7 +65,6 @@
           <tr><td>会場</td><td>調整中</td></tr>
           <tr><td>対象</td><td>全国の中学校・高等学校 生徒会役員</td></tr>
           <tr><td>主催</td><td>全国生徒会大会2027 実行委員会</td></tr>
-          <tr><td>共催</td><td>一般社団法人 生徒会活動支援協会</td></tr>
         </table>
       </div>
     </div>
@@ -73,7 +80,9 @@
 
 </main>
 <footer>© 全国生徒会大会2027 実行委員会</footer>
+</div>
 <script src="script.js"></script>
+<script src="intro.js"></script>
 
 </body>
 </html>
