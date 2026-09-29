@@ -207,6 +207,7 @@
   #intro{
     position:fixed;top:0;left:0;width:100%;height:100vh;z-index:500;
     display:flex;align-items:center;justify-content:center;cursor:pointer;
+    padding:0 32px;box-sizing:border-box;overflow:hidden;
     background:linear-gradient(90deg,#8c53ff 0%,#8c53ff 37%,#5de1e6 62%,#5de1e6 100%);
   }
   @media (orientation:portrait){
@@ -214,7 +215,7 @@
   }
   #introSpacer{height:100vh;}
   .intro-logo{
-    width:min(70vw,460px);height:auto;
+    width:100%;max-width:420px;min-width:0;flex-shrink:1;height:auto;
     animation:introIn 1.1s ease-out both;
   }
   .intro-scroll{
