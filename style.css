@@ -260,3 +260,20 @@
   #instagram{padding-top:36px;padding-bottom:36px;}
   .insta-banner{display:block;}
   .insta-banner img{width:100%;height:auto;display:block;}
+
+  /* Home-only tagline hero banner */
+  .tagline-hero{
+    background:linear-gradient(90deg, var(--purple), var(--teal));
+    padding:72px 0;
+  }
+  .tagline-hero h1{
+    color:#fff;font-size:2rem;line-height:1.5;margin:0 0 14px;font-weight:900;
+  }
+  .tagline-hero p{
+    color:#fff;font-size:1.1rem;font-weight:700;margin:0;opacity:.95;
+  }
+  @media (max-width:600px){
+    .tagline-hero{padding:46px 0;}
+    .tagline-hero h1{font-size:1.4rem;}
+    .tagline-hero p{font-size:.95rem;}
+  }
