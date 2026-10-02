@@ -10,11 +10,11 @@ const committees = [
 ];
 
 const news = [
-  {date:'2026.10.01', tag:'お知らせ', text:'全国生徒会大会2027 特設サイトを公開しました。'},
+  {date:'2026.12.01', tag:'お知らせ', text:'全国生徒会大会2027 特設サイトを公開しました。'},
   {date:'準備中', tag:'開催概要', text:'開催日程・会場は決まり次第、随時お知らせいたします。'},
   {date:'準備中', tag:'募集', text:'参加校の募集開始時期は近日公開予定です。'},
 ];
-
+ 
 function renderDropdown(){
   const el = document.getElementById('committeeMenu');
   if(!el) return;
@@ -22,7 +22,7 @@ function renderDropdown(){
     `<a href="committee-${c.slug}.html">${c.badge}</a>`
   ).join('');
 }
-
+ 
 function renderNews(){
   const el = document.getElementById('newsList');
   if(!el) return;
@@ -33,32 +33,34 @@ function renderNews(){
       <span>${n.text}</span>
     </li>`).join('');
 }
-
+ 
 function closeMenus(){
   document.getElementById('committeeDropdown').classList.remove('open');
   document.getElementById('mainNav').classList.remove('open');
 }
-
+ 
 function positionMobileNav(){
   const header = document.querySelector('header');
   document.getElementById('mainNav').style.top = header.offsetHeight + 'px';
 }
-
+ 
 function setActiveNav(){
   const file = location.pathname.split('/').pop() || 'index.html';
   let page = 'home';
   if(file === 'contact.html') page = 'contact';
+  else if(file === 'overview.html') page = 'overview';
+  else if(file === 'program.html') page = 'program';
   else if(file.startsWith('committee-')) page = 'committee';
   document.querySelectorAll('.navlink').forEach(el=>{
     el.classList.toggle('active', el.dataset.page === page);
   });
 }
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
   renderDropdown();
   renderNews();
   setActiveNav();
-
+ 
   document.getElementById('committeeToggle').addEventListener('click', (e)=>{
     e.stopPropagation();
     document.getElementById('committeeDropdown').classList.toggle('open');
@@ -74,3 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   window.addEventListener('resize', positionMobileNav);
 });
+ 
