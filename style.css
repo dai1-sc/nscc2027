@@ -90,8 +90,6 @@
     .dropdown-menu{position:static;transform:none;display:none;width:100%;margin-top:4px;padding-left:12px;}
     .dropdown.open .dropdown-menu{display:flex;}
     .navlink.contact{width:100%;text-align:center;}
-    .navlink.detail{width:100%;text-align:center;}
-    .navlink.program{width:100%;text-align:center;}
   }
 
   /* Hero */
