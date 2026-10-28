@@ -12,8 +12,6 @@ const committees = [
 const news = [
   {date:'10.28', tag:'お知らせ', text:'開催日：2027年3月24日〜27日に決定！'},
   {date:'10.07', tag:'お知らせ', text:'全国生徒会大会2027 特設サイトを公開しました。'},
-  {date:'10.07', tag:'開催概要', text:'開催地：国立オリンピック記念青少年総合センター'},
-  {date:'準備中', tag:'募集', text:'参加校の募集開始時期は近日公開予定です。'},
 ];
  
 function renderDropdown(){
