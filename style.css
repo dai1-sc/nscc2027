@@ -288,6 +288,12 @@
     .tagline-hero p{font-size:.95rem;}
   }
 
+/* =====================================================
+   メニューアニメーション
+   ※ style.css の一番下（最後）にそのまま貼り付けてください。
+   既存のルールを上書きする形なので、必ず末尾に置くこと。
+   ===================================================== */
+
 /* ---------- PC：実行委員紹介プルダウン ---------- */
 
 /* ▾ が開閉に合わせて回る */
@@ -388,9 +394,49 @@
   }
 
   /* メニュー項目が下から順番に出てくる */
-  nav.main-nav ul{font-size:1.05rem;}
+  /* 文字を大きく・中央揃えにして、1行をタップしやすい高さにする */
+  nav.main-nav{
+    padding:20px 20px calc(36px + env(safe-area-inset-bottom,0px));
+  }
+  nav.main-nav ul{
+    align-items:stretch;
+    gap:6px;
+    text-align:center;
+  }
+  nav.main-nav .navlink{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:56px;
+    padding:12px 16px;
+    font-size:1.2rem;
+    border-radius:14px;
+    white-space:normal;
+    -webkit-tap-highlight-color:transparent;
+    transition:background-color .2s ease;
+  }
+  nav.main-nav .navlink:active{background:var(--line);}
+  /* 現在のページ：下線ではなく、薄い背景の帯で示す */
+  nav.main-nav .navlink.active{
+    border-bottom:none;
+    padding-bottom:12px;
+    background:var(--line);
+    font-weight:700;
+  }
+  .caret{font-size:.8em;margin-left:8px;}
+  /* お問い合わせ：目立つボタンにする */
+  nav.main-nav .navlink.contact{
+    margin-top:14px;
+    background:var(--btn-bg);
+    color:#fff;
+    border-radius:999px;
+    font-weight:700;
+  }
+  nav.main-nav .navlink.contact:active{background:var(--purple-deep);color:#fff;}
+  nav.main-nav .navlink.contact.active{background:var(--btn-bg);}
+
   nav.main-nav ul > li{
-    padding:4px 0;
+    padding:0;
     opacity:0;
     transform:translateY(16px);
     transition:opacity .15s ease, transform .15s ease;
@@ -413,11 +459,15 @@
     position:static;
     transform:none;
     width:100%;
+    min-width:0;
     margin-top:0;
-    padding:0 0 0 12px;
+    padding:0;
+    gap:4px;
+    background:transparent;
     border:none;
     border-radius:0;
     box-shadow:none;
+    text-align:center;
     max-height:0;
     overflow:hidden;
     opacity:0;
@@ -429,13 +479,27 @@
       visibility 0s linear .35s;
   }
   .dropdown.open .dropdown-menu{
-    max-height:480px;
-    margin-top:4px;
+    max-height:600px;
+    margin-top:6px;
     opacity:1;
     visibility:visible;
     transform:none;
     transition-delay:0s;
   }
+  /* 実行委員の各項目：大きめの文字と、指で押しやすい高さ */
+  .dropdown-menu a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    padding:10px 16px;
+    font-size:1.08rem;
+    border-radius:12px;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .dropdown-menu a:active{background:var(--line);color:var(--purple-deep);}
 
   /* メニューを開いている間は後ろのページが動かないように */
   body.menu-open{overflow:hidden;}
@@ -451,5 +515,7 @@
   nav.main-nav ul > li{
     transition-duration:.01ms !important;
     transition-delay:0s !important;
+  }
+}
   }
 }
