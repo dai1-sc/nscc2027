@@ -17,8 +17,9 @@ const news = [
 function renderDropdown(){
   const el = document.getElementById('committeeMenu');
   if(!el) return;
-  el.innerHTML = committees.map(c =>
-    `<a href="committee-${c.slug}.html">${c.badge}</a>`
+  // --i は CSS 側で「1項目ずつ順番に出す」ための番号
+  el.innerHTML = committees.map((c, i) =>
+    `<a href="committee-${c.slug}.html" style="--i:${i}">${c.badge}</a>`
   ).join('');
 }
  
@@ -32,10 +33,29 @@ function renderNews(){
       <span>${n.text}</span>
     </li>`).join('');
 }
+
+function setDropdownOpen(open){
+  const dd = document.getElementById('committeeDropdown');
+  const toggle = document.getElementById('committeeToggle');
+  dd.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+}
+
+function setNavOpen(open){
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('menuToggle');
+  if(open) positionMobileNav();
+  nav.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', String(open));
+  btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニュー');
+  document.body.classList.toggle('menu-open', open);
+  // メニューを閉じるときは、中の実行委員紹介も畳んでおく
+  if(!open) setDropdownOpen(false);
+}
  
 function closeMenus(){
-  document.getElementById('committeeDropdown').classList.remove('open');
-  document.getElementById('mainNav').classList.remove('open');
+  setDropdownOpen(false);
+  setNavOpen(false);
 }
  
 function positionMobileNav(){
@@ -59,20 +79,56 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDropdown();
   renderNews();
   setActiveNav();
- 
-  document.getElementById('committeeToggle').addEventListener('click', (e)=>{
+
+  const dropdown = document.getElementById('committeeDropdown');
+  const committeeToggle = document.getElementById('committeeToggle');
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  // ハンバーガーボタンを「3本線 → ×」に変形できる形にする（HTML側の変更は不要）
+  menuToggle.innerHTML = '<span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>';
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-controls', 'mainNav');
+
+  // 実行委員紹介：キーボードでも開閉できるように
+  committeeToggle.setAttribute('role', 'button');
+  committeeToggle.setAttribute('tabindex', '0');
+  committeeToggle.setAttribute('aria-haspopup', 'true');
+  committeeToggle.setAttribute('aria-expanded', 'false');
+
+  committeeToggle.addEventListener('click', (e)=>{
     e.stopPropagation();
-    document.getElementById('committeeDropdown').classList.toggle('open');
+    setDropdownOpen(!dropdown.classList.contains('open'));
   });
-  document.getElementById('menuToggle').addEventListener('click', ()=>{
-    positionMobileNav();
-    document.getElementById('mainNav').classList.toggle('open');
-  });
-  document.addEventListener('click', (e)=>{
-    if(!document.getElementById('committeeDropdown').contains(e.target)){
-      document.getElementById('committeeDropdown').classList.remove('open');
+  committeeToggle.addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter' || e.key === ' '){
+      e.preventDefault();
+      setDropdownOpen(!dropdown.classList.contains('open'));
     }
   });
-  window.addEventListener('resize', positionMobileNav);
+
+  menuToggle.addEventListener('click', ()=>{
+    setNavOpen(!mainNav.classList.contains('open'));
+  });
+
+  // メニュー内のリンクを押したら閉じる（同じページ内リンクでも開きっぱなしにならない）
+  mainNav.addEventListener('click', (e)=>{
+    if(e.target.closest('a')) closeMenus();
+  });
+
+  // メニューの外側をクリックしたらプルダウンを閉じる
+  document.addEventListener('click', (e)=>{
+    if(!dropdown.contains(e.target)) setDropdownOpen(false);
+  });
+
+  // Esc キーで閉じる
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') closeMenus();
+  });
+
+  window.addEventListener('resize', ()=>{
+    // PC幅に広げたらスマホ用メニューは閉じる
+    if(window.innerWidth > 720 && mainNav.classList.contains('open')) setNavOpen(false);
+    positionMobileNav();
+  });
 });
- 
