@@ -9,7 +9,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="icon.png" type="image/png">
-
+<style>
+  .overview-table {
+    width: 100%;
+    max-width: 760px;
+    margin: 32px auto 16px;
+    border-collapse: collapse;
+  }
+  .overview-table th,
+  .overview-table td {
+    padding: 16px 8px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.8;
+    border-bottom: 1px solid #ddd;
+  }
+  .overview-table th {
+    width: 7.5em;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  .overview-table td {
+    word-break: break-word;
+  }
+  .overview-note {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    padding: 0 8px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  @media (max-width: 600px) {
+    .overview-table,
+    .overview-table tbody,
+    .overview-table tr,
+    .overview-table th,
+    .overview-table td {
+      display: block;
+      width: 100%;
+    }
+    .overview-table th {
+      padding: 14px 8px 0;
+      border-bottom: none;
+    }
+    .overview-table td {
+      padding: 2px 8px 14px;
+    }
+  }
+</style>
 </head>
 <body>
 <header>
@@ -39,10 +86,46 @@
   <div class="committee-hero">
     <h2>大会概要</h2>
   </div>
-  <div class="coming-soon-box">
-    <span class="big">Coming soon</span>
-    大会概要の情報は、決まり次第こちらのページで公開いたします。
-  </div>
+
+  <table class="overview-table">
+    <tbody>
+      <tr>
+        <th scope="row">大会名</th>
+        <td>全国生徒会大会2027【NSCC2027】</td>
+      </tr>
+      <tr>
+        <th scope="row">日時</th>
+        <td>2027年3月28日(日) 12:00 〜 30日(火) 16:00 解散予定(2泊3日)</td>
+      </tr>
+      <tr>
+        <th scope="row">主催</th>
+        <td>全国生徒会大会2027 実行委員会</td>
+      </tr>
+      <tr>
+        <th scope="row">共催</th>
+        <td>一般社団法人 生徒会活動支援協会</td>
+      </tr>
+      <tr>
+        <th scope="row">定員</th>
+        <td>230名(生徒200名 / 教員30名)</td>
+      </tr>
+      <tr>
+        <th scope="row">会場</th>
+        <td>国立オリンピック記念青少年総合センター(東京都渋谷区)</td>
+      </tr>
+      <tr>
+        <th scope="row">アクセス</th>
+        <td><a href="https://nyc.niye.go.jp/access" target="_blank" rel="noopener">https://nyc.niye.go.jp/access</a></td>
+      </tr>
+      <tr>
+        <th scope="row">宿泊</th>
+        <td>同センター宿泊棟</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="overview-note">※会場へのお問い合わせはご遠慮ください。</p>
+
   <p style="text-align:center;"><a class="back-link" href="index.html">← ホームに戻る</a></p>
 
 </main>
