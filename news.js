@@ -54,7 +54,8 @@
         a.href = item.link;
         a.target = '_blank';
         a.rel = 'noopener';
-        a.textContent = '詳しくはこちら';
+        // 表示名があればそれを、なければURLをそのまま表示する
+        a.textContent = item.linkLabel || item.link;
         p.appendChild(a);
         article.appendChild(p);
       }
