@@ -171,7 +171,8 @@
       date: $('newsDate').value,
       title: $('newsTitle').value,
       body: $('newsBody').value,
-      link: $('newsLink').value
+      link: $('newsLink').value,
+      linkLabel: $('newsLinkLabel').value
     }).then(function (res) {
       btn.disabled = false;
       if (handleAuthFail(res)) return;
@@ -263,6 +264,7 @@
     $('newsTitle').value = item.title;
     $('newsBody').value = item.body;
     $('newsLink').value = item.link || '';
+    $('newsLinkLabel').value = item.linkLabel || '';
     showDeptField(item.department);
     $('formTitle').textContent = 'お知らせを編集する';
     $('saveBtn').textContent = '更新する';
