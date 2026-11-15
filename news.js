@@ -5,7 +5,7 @@
   'use strict';
 
   var LIMIT = 3;
-  var box = document.getElementById('newsList');
+  var box = document.getElementById('newsFeed');
   if (!box) return;
   if (typeof NSCC_API === 'undefined' || NSCC_API.indexOf('http') !== 0) return;
 
@@ -18,38 +18,38 @@
 
     if (!items.length) {
       var empty = document.createElement('p');
-      empty.className = 'news-empty';
+      empty.className = 'nf-empty';
       empty.textContent = '現在、お知らせはありません。';
       box.appendChild(empty);
       return;
     }
 
     var list = document.createElement('div');
-    list.className = 'news-list';
+    list.className = 'nf-list';
 
     items.forEach(function (item, i) {
       var article = document.createElement('article');
-      article.className = 'news-item';
+      article.className = 'nf-item';
       if (i >= LIMIT) article.hidden = true;
 
       var meta = document.createElement('p');
-      meta.className = 'news-meta';
+      meta.className = 'nf-meta';
       meta.textContent = formatDate(item.date) + '　' + item.department;
       article.appendChild(meta);
 
       var title = document.createElement('h3');
-      title.className = 'news-title';
+      title.className = 'nf-title';
       title.textContent = item.title;
       article.appendChild(title);
 
       var body = document.createElement('p');
-      body.className = 'news-body';
+      body.className = 'nf-body';
       body.textContent = item.body;
       article.appendChild(body);
 
       if (item.link) {
         var p = document.createElement('p');
-        p.className = 'news-link';
+        p.className = 'nf-link';
         var a = document.createElement('a');
         a.href = item.link;
         a.target = '_blank';
@@ -67,12 +67,12 @@
     if (items.length > LIMIT) {
       var btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'news-more';
+      btn.className = 'nf-more';
       btn.textContent = 'もっと見る';
       btn.setAttribute('aria-expanded', 'false');
       btn.addEventListener('click', function () {
         var open = btn.getAttribute('aria-expanded') === 'true';
-        var articles = list.querySelectorAll('.news-item');
+        var articles = list.querySelectorAll('.nf-item');
         for (var i = LIMIT; i < articles.length; i++) articles[i].hidden = open;
         btn.setAttribute('aria-expanded', open ? 'false' : 'true');
         btn.textContent = open ? 'もっと見る' : '閉じる';
@@ -84,7 +84,11 @@
   fetch(NSCC_API + '?action=list')
     .then(function (res) { return res.json(); })
     .then(function (data) {
-      if (data && data.ok) render(data.items || []);
+      if (!data || !data.ok) return;
+      render(data.items || []);
+      // 取得できたら、元からあるお知らせの一覧は隠す
+      var old = document.getElementById('newsList');
+      if (old) old.style.display = 'none';
     })
     .catch(function () { /* 失敗時は既存の表示を残す */ });
 })();
