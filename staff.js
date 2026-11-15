@@ -117,8 +117,7 @@
 
   function enterMain() {
     showView('main');
-    $('whoami').textContent = member.name + ' さん（' + member.department + '）としてログイン中';
-    $('deptLabel').textContent = member.department;
+    $('whoami').textContent = member.name + ' さん（' + member.departments.join('・') + '）としてログイン中';
     resetForm();
     loadList();
   }
@@ -130,8 +129,32 @@
     $('formTitle').textContent = 'お知らせを投稿する';
     $('saveBtn').textContent = '投稿する';
     $('cancelBtn').hidden = true;
-    $('deptLabel').textContent = member ? member.department : '';
+    showDeptField(null);
     setMsg('formMsg', '');
+  }
+
+  // 部署欄の表示。editDept があれば編集中の投稿の部署を固定表示、
+  // なければ所属が複数のときだけ選択式、1つなら固定表示にする。
+  function showDeptField(editDept) {
+    var label = $('deptLabel');
+    var select = $('deptSelect');
+    var depts = member ? member.departments : [];
+
+    if (!editDept && depts.length > 1) {
+      select.innerHTML = '';
+      depts.forEach(function (d) {
+        var opt = document.createElement('option');
+        opt.value = d;
+        opt.textContent = d;
+        select.appendChild(opt);
+      });
+      select.hidden = false;
+      label.hidden = true;
+    } else {
+      label.textContent = editDept || depts[0] || '';
+      label.hidden = false;
+      select.hidden = true;
+    }
   }
 
   $('cancelBtn').addEventListener('click', resetForm);
@@ -144,6 +167,7 @@
     api('save', {
       token: token,
       id: editingId,
+      department: $('deptSelect').hidden ? '' : $('deptSelect').value,
       date: $('newsDate').value,
       title: $('newsTitle').value,
       body: $('newsBody').value,
@@ -239,7 +263,7 @@
     $('newsTitle').value = item.title;
     $('newsBody').value = item.body;
     $('newsLink').value = item.link || '';
-    $('deptLabel').textContent = item.department;
+    showDeptField(item.department);
     $('formTitle').textContent = 'お知らせを編集する';
     $('saveBtn').textContent = '更新する';
     $('cancelBtn').hidden = false;
