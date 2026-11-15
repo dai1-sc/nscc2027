@@ -26,6 +26,15 @@
     border-radius: 4px;
     background: #fff;
   }
+  .st-field select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font: inherit;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background: #fff;
+  }
   .st-field textarea { min-height: 140px; line-height: 1.7; resize: vertical; }
   .st-fixed { margin: 0; padding: 10px 0; }
   .st-btn {
@@ -128,6 +137,7 @@
         <div class="st-field">
           <label>部署</label>
           <p class="st-fixed" id="deptLabel"></p>
+          <select id="deptSelect" hidden></select>
         </div>
         <div class="st-field">
           <label for="newsDate">日付</label>
