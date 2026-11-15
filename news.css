@@ -1,30 +1,30 @@
 /* ホームページのお知らせ表示（news.js が出力する要素用） */
-.news-list { margin: 0; }
-.news-item {
+.nf-list { margin: 0; }
+.nf-item {
   padding: 16px 0;
   border-bottom: 1px solid #ddd;
 }
-.news-item[hidden] { display: none; }
-.news-meta {
+.nf-item[hidden] { display: none; }
+.nf-meta {
   margin: 0 0 4px;
   font-size: 0.85rem;
   color: #666;
 }
-.news-title {
+.nf-title {
   margin: 0 0 6px;
   font-size: 1.05rem;
   line-height: 1.5;
 }
-.news-body {
+.nf-body {
   margin: 0;
   line-height: 1.8;
   white-space: pre-wrap;
   word-break: break-word;
 }
-.news-link { margin: 8px 0 0; }
-.news-link a { text-decoration: underline; }
-.news-empty { margin: 0; padding: 16px 0; color: #666; }
-.news-more {
+.nf-link { margin: 8px 0 0; }
+.nf-link a { text-decoration: underline; }
+.nf-empty { margin: 0; padding: 16px 0; color: #666; }
+.nf-more {
   display: block;
   margin: 16px auto 0;
   padding: 10px 28px;
